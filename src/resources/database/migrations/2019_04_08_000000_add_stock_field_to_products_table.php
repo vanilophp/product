@@ -13,7 +13,7 @@ class AddStockFieldToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->decimal('stock', 15, 4)->default(0);
+            $table->unsignedMediumInteger('stock')->default(0);
         });
     }
 

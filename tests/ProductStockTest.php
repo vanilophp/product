@@ -3,7 +3,6 @@
 namespace Vanilo\Product\Tests;
 
 use Vanilo\Product\Models\Product;
-use Vanilo\Product\Models\ProductProxy;
 
 class ProductStockTest extends TestCase
 {
@@ -15,10 +14,10 @@ class ProductStockTest extends TestCase
         $product = Product::create([
             'name'  => 'Dell Latitude E7240 Laptop',
             'sku'   => 'DLL-74237',
-            'stock' => 123.45
+            'stock' => 123
         ]);
 
-        $this->assertEquals(123.45, $product->stock);
+        $this->assertEquals(123, $product->stock);
     }
 
     /**
@@ -29,7 +28,7 @@ class ProductStockTest extends TestCase
         $createdProduct = Product::create([
             'name'  => 'Dell Latitude E7240 Laptop',
             'sku'   => 'DLL-74237',
-            'stock' => 123.45
+            'stock' => 123
         ]);
 
         $product = Product::find($createdProduct->id);
@@ -58,7 +57,7 @@ class ProductStockTest extends TestCase
         $product = Product::create([
             'name'  => 'Dell Latitude E7240 Laptop',
             'sku'   => 'DLL-74237',
-            'stock' => 123.45
+            'stock' => 123
         ]);
 
         $this->assertTrue($product->isOnStock());
@@ -86,7 +85,7 @@ class ProductStockTest extends TestCase
         $product = Product::create([
             'name'  => 'Dell Latitude E7240 Laptop',
             'sku'   => 'DLL-74237',
-            'stock' => -123.45
+            'stock' => -123
         ]);
 
         $this->assertFalse($product->isOnStock());
